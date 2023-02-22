@@ -1,4 +1,5 @@
-<div class="col-lg-3 px-lg-0" id="cartData">
+<div class="col-lg-3 px-lg-0 cartside">
+     <div class="w-100" id="cartData"> 
     <div class="content-right">
         <div class="content-right-head">
             <a style="text-decoration: none" class="head-icon text-center" href="{{route('customers')}}">
@@ -172,4 +173,5 @@
             </div>
         </div>
     </div>
+ </div> 
 </div>

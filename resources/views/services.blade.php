@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="wrapper container-fluid">
+<div class="wrapper container-fluid">
         <div class="row">
             <div class="col-lg-9">
                 <div class="top-header">
@@ -78,7 +78,7 @@
             {{-- Cart Area --}}
             @include('layouts.cart')
         </div>
-    </div>
+    </div>    
 @endsection
 @section('scripts')
     <script>

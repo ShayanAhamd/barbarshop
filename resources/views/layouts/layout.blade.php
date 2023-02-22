@@ -6,7 +6,10 @@
 </head>
 
 <body>
-   @yield('content')
+    
+        @yield('content')
+   
+   
 
 
     <!-- bootstrap_5 -->

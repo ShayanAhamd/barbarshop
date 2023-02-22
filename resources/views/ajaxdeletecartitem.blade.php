@@ -380,8 +380,7 @@
 </div>
 {{-- for discount popup --}}
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  {{-- <input type="hidden" name="price" id="price" value="{{$details['price']}}"> --}}
-  {{-- <input type="hidden" name="prod_id" id="prod_id" value="{{$id}}"> --}}
+  
   <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
           <h5 class="mid-head" id="exampleModalLabel">
