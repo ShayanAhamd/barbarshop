@@ -864,9 +864,10 @@ span {
   line-height: 17px;
   text-transform: uppercase;
   color: var(--black);
+}
+.content-right-center .m-auto.text-center p,span {
   opacity: 0.3;
 }
-
 .order-item-head {
   width: 100%;
   display: flex;
