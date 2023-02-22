@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="wrapper-2 container-fluid">
+<div class="wrapper-2 container-fluid">
         <div class="row">
             <div class="col-12">
                 <div class="top-header" style="margin: 0 -0.75rem;">
@@ -98,6 +98,6 @@
                 </section>
             </div>
         </div>
-    </div>
+</div>    
 @endsection
 @section('scripts')    

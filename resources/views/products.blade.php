@@ -34,13 +34,12 @@
                                             style="cursor: pointer;">
                                             {{-- onclick="addtocard({{$product->id}})" --}}
                                             {{-- <a style="text-decoration: none" href="{{ route('add.to.cart',$product->id)}}"> --}}
-                                            <div class="service-col">
+                                            <div class="service-col big">
                                                 <p class="col-head">{{ $product->name }}</p>
                                                 <p class="col-price">$ {{ $product->price }}</p>
+                                                <input name="one" id="chb1" type="radio" class="d-none">
                                             </div>
                                             {{-- </a> --}}
-
-
                                         </div>
                                     @endforeach
                                 </div>
@@ -54,7 +53,7 @@
         </div>
     </div>
     {{--  for discount popup --}}
-     {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -76,7 +75,7 @@
             </div>
 
         </div>
-    </div>  --}}
+    </div>   --}}
 
     {{-- For payment Popup --}}
     {{-- <section id="content">
@@ -235,11 +234,13 @@
         // for show discount popup
 
         function popup(prod_id, prod_price) {
+            // $(".modal-backdrop").remove();
             $('#exampleModal').modal();
             getAllDiscountsList(prod_id, prod_price);
         }
 
         function getAllDiscountsList(prod_id, prod_price) {
+            // alert(prod_id); return false;
             $.ajax({
                 url: "{{ route('get.alldiscounts') }}",
                 type: 'get',
@@ -249,7 +250,7 @@
                 },
                 success: function(response) {
                     if (response.status == 'success') {
-                        $("#discountslist").empty();
+                        // $("#discountslist").empty();
                         $.each(response.data, function(key, value) {
                             var name = "'" + value.name + "'";
                             $("#discountslist").append(
@@ -453,4 +454,10 @@
             });
 
         }
+
+        $('.big').click(function() {
+            $(this).find('input:radio').checked = true;
+            $('.col-active').toggleClass('col-active');
+            $(this).toggleClass('col-active');
+        });
     </script>

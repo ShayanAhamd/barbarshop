@@ -1,13 +1,14 @@
 @extends('layouts.layout')
+
 <style>
-  .active {
-background: var(--orang-2);
-border: 1px solid var(--orang-2);
-color: var(--white) !important;
-}
-</style>
+.active {
+  background: var(--orang-2) !important;
+  border: 1px solid var(--orang-2);
+  color: var(--white) !important;
+  }
+  </style>
 @section('content')
-    <div class="wrapper">
+<div class="wrapper">
         <div class="container">
             <header class="header pt-4 pb-3">
                 <button type="button" class="btn-orang" id="popupBtn" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -82,12 +83,12 @@ color: var(--white) !important;
 
             </div>
         </div>
-    </div>
+</div>
    
 
 @endsection
 @section('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script type="text/javascript">
         function onFocusEvent(index) {
             for (item = 1; item < index; item++) {
@@ -141,4 +142,5 @@ color: var(--white) !important;
         });
 
     </script>
+@endsection
   

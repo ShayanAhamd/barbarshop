@@ -1,4 +1,4 @@
-<div class="content-right">
+<div class="content-right" >
   <div class="content-right-head">
       <a style="text-decoration: none" class="head-icon text-center" href="{{ route('customers') }}">
           <div class="head-icon text-center">
@@ -39,7 +39,7 @@
 
 
 
-  <div class="content-right-center" id="cardData">
+  <div class="content-right-center">
       <div class="order-item-head">
           <p>Product</p>
           <p>Qty</p>
@@ -394,14 +394,6 @@
       </h5>
       <div class="box-body box-body-inner" id="discountslist">
 
-          @foreach ($discounts as $key => $discount)
-              <button type="button" class="btn-styleless"
-                  onclick="discount({{ $details['price'] }},{{ $id }},'{{ $discount->name }}',{{ $discount->id }},{{ $discount->percentage }} )">
-
-                  {{ $discount->name . ' [' . $discount->percentage . '%]' }}
-              </button>
-          @endforeach
-
       </div>
 
   </div>
@@ -470,7 +462,7 @@
                       <div class="col-md-8 offset-md-2">
                           <div class="d-flex align-content-center justify-content-between gap-1 flex-md-wrap">
                               <button type="buttonn" class="btn-orang px-5 py-2 rounded">Cash</button>
-                              <button type="buttonn" class="btn-orang px-5 py-2 rounded">Card</button>
+                              <button type="buttonn" class="btn-orang px-5 py-2 rounded">Carding</button>
                               <button type="buttonn" class="btn-orang px-5 py-2 rounded">Online</button>
                           </div>
                       </div>

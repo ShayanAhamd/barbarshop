@@ -768,10 +768,17 @@ td>button.btn-orang {
   text-transform: uppercase;
   color: var(--orang-2);
 }
+/* .cartside {
+  position: fixed;
+  right: 0;
+  left: auto;
+  top: 0;
+  bottom: 0;
+} */
 
 .content-right {
   width: 100%;
-  height: 700px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -839,8 +846,8 @@ td>button.btn-orang {
 }
 
 .content-right-center {
-  /* height: calc(100% - 54.5%); */
-  height: 50.6696%;
+   height: calc(100% - 56.5%);   
+   /* height: 50.6696%;   */
   width: 100%;
   display: flex;
   flex-direction: column;
