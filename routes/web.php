@@ -27,14 +27,15 @@ Route::get('/customers',[HomeController::class,'customers'])->name('customers');
 Route::get('/customer-search',[HomeController::class,'customersSearch'])->name('customer.search');
 Route::get('/products',[ProductController::class,'products'])->name('products');
 Route::get('add-to-cart', [ProductController::class, 'addToCart'])->name('add.to.cart');
-Route::post('update-cart', [ProductController::class, 'update'])->name('update.cart');
-Route::post('update-quantity', [ProductController::class, 'updatequantity'])->name('update.quantity');
+Route::post('update-cart', [ProductController::class, 'Plus'])->name('update.cart');
+Route::post('update-quantity', [ProductController::class, 'Minus'])->name('update.quantity');
 Route::post('discount-product', [ProductController::class, 'adddiscount'])->name('discount.product');
 Route::post('add-notes', [ProductController::class, 'addnotes'])->name('add.notes');
 Route::get('remove-from-cart', [ProductController::class, 'remove'])->name('delete.cart.item');
 Route::get('destory-all-cart-items', [ProductController::class, 'destorycart'])->name('destory.all.cart.items');
 Route::post('/place-order',[ProductController::class,'placeorder'])->name('order');
 Route::get('view-order/{id}', [HomeController::class, 'orderDetail']);
+Route::get('getdiscounts', [ProductController::class, 'getAllDiscounts'])->name('get.alldiscounts');
 
 Route::get('/logout',[HomeController::class,'Logout'])->name('logout');
 
