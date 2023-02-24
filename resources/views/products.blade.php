@@ -53,7 +53,7 @@
         </div>
     </div>
     {{--  for discount popup --}}
-    {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <!-- {{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -75,10 +75,10 @@
             </div>
 
         </div>
-    </div>   --}}
+    </div>   --}} -->
 
     {{-- For payment Popup --}}
-    {{-- <section id="content">
+    <!-- {{-- <section id="content">
         <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="pay-modal-content">
@@ -208,7 +208,7 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section> --}} -->
 
 
 @endsection
@@ -461,3 +461,4 @@
             $(this).toggleClass('col-active');
         });
     </script>
+    @endsection

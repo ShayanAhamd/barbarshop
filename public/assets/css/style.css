@@ -1177,3 +1177,56 @@ th {
 span {
   opacity: 1 !important;
 }
+.modal-dialog-print{
+  max-width: 1000px;
+}
+.modal-content-print{
+  padding-bottom: 26%;
+}
+.box-print{
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  justify-items: center;
+  display: grid;
+  margin-right: 10px;
+}
+.print-box-text{
+  color: var(--orang-2);
+  white-space: nowrap;
+}
+.print-text{
+  font-size: 24px;
+}
+.modal-input-email-outer::before{
+  content: "$"; /* Change to your desired prefix */
+  position: absolute;
+  top: 46.5%;
+  left: 75px;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+.modal-input-email{
+  padding-left: 30px !important;
+  width: 439px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  gap: 10px;
+  border: 1px solid #FF9900;
+  border-radius: 15px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 36px;
+  color: var(--black);
+}
+.modal-content-email{
+  width: 40rem;
+}
+.modal-dialog-email{
+  left: -68px
+}

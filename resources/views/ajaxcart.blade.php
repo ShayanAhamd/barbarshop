@@ -462,7 +462,13 @@
                       <div class="col-md-8 offset-md-2">
                           <div class="d-flex align-content-center justify-content-between gap-1 flex-md-wrap">
                               <button type="buttonn" class="btn-orang px-5 py-2 rounded">Cash</button>
-                              <button type="buttonn" class="btn-orang px-5 py-2 rounded">Carding</button>
+                              <button type="buttonn" class="btn-orang px-5 py-2 rounded"
+                                data-bs-dismiss="modal"
+                                data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop"
+                              >
+                                Card
+                              </button>
                               <button type="buttonn" class="btn-orang px-5 py-2 rounded">Online</button>
                           </div>
                       </div>
@@ -515,5 +521,72 @@
           </div>
       </div>
   </div>
+</div>
+
+<div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-print">
+        <div class="modal-content modal-content-print">
+            <div class="modal-header d-flex w-100 border-bottom-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <span class="print-text pt-5">SEND RECEIPT TO</span>
+            <div class="d-flex">
+                <div
+                    class="col-4 box-print p-4"
+                    onclick="printPdf()"
+                    style="cursor: pointer;"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#printmodal"
+                >
+                    <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px">
+                    <span class="print-box-text pt-2">
+                        Printer
+                    </span>
+                </div>
+                <div
+                    class="col-4 box-print p-4"
+                    style="cursor: pointer;"
+                    data-bs-dismiss="modal"
+                    data-bs-toggle="modal"
+                    data-bs-target="#emailmodal"
+                >
+                    <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px">
+                    <span class="print-box-text pt-2">
+                        Email
+                    </span>
+                </div>
+                <div class="col-4 box-print p-4">
+                    <div>
+                        <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px" style="margin-right: 5px;" >
+                        <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px" style="margin-right: 13px;" >
+                    </div>
+                    <span class="print-box-text pt-2" style="margin-left: -14px;">
+                        Print & Email
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include('billPDF')
+<div class="modal fade" id="emailmodal" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-email">
+        <div class="modal-content modal-content-email">
+            <div class="modal-content border-0">
+                <h5 class="mid-head" id="noteModalLabel">
+                    EMAIL TO
+                </h5>
+                <div class="modal-input-email-outer">
+                    <input type="text" class="modal-input-email" id="notes" value=""> 
+                </div>
+                <div class="d-flex justify-content-center align-content-center gap-2">
+                    <button type="button" class="btn-orang px-5 py-3">APPLY DISCOUNT</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </section>

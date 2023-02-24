@@ -405,7 +405,7 @@
 
 
 {{-- payment popup --}}
-{{-- <section id="content">
+<!-- {{-- <section id="content">
     <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="paymentLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -529,4 +529,4 @@
             </div>
         </div>
     </div>
-</section> --}}
+</section> --}} -->
