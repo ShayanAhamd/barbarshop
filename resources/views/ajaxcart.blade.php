@@ -402,191 +402,207 @@
 </div>
 {{-- payment popup --}}
 <section id="content">
-<div class="modal fade" id="payment" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="pay-modal-content">
-          <div class="modal-body">
-              <div class="px-5">
-                  <div class="row px-3">
-                      <div class="col-md-3 bg-w p-3">
-                          <div class="mb-5">
-                              <p class="sub-head">Total Amount</p>
-                              <p class="mid-head subtotal">$ {{ $subtotal }}</p>
-                          </div>
-                          <div class="mb-2">
-                              <p class="profile-description">Service Charges</p>
-                              <p class="mid-head">$ 00.00</p>
-                          </div>
-                          <div class="mb-2">
-                              <p class="profile-description">Discount </p>
-                              <p class="mid-head totalDiscount">$ {{ number_format($totaldiscount, 2) }}</p>
-                          </div>
-                          <div class="mb-2">
-                              <p class="profile-description">Due Amount</p>
-                              <p class="mid-head duePrice">$ {{ number_format($total, 2) }} </p>
-                          </div>
-                      </div>
-                      <div class="col-md-9">
-                          <div class=" bg-w sub-head ">
-                              <p class="sub-head text-end py-3 px-4">
-                                  $ 00.00
-                              </p>
-                          </div>
-                          <div class="d-flex align-content-center justify-content-between">
-                              <button type="button" class="pay-btn py-3">1</button>
-                              <button type="button" class="pay-btn py-3">2</button>
-                              <button type="button" class="pay-btn py-3">3</button>
-                              <button type="button" class="pay-btn py-3">$ 5</button>
-                          </div>
-                          <div class="d-flex align-content-center justify-content-between">
-                              <button type="button" class="pay-btn py-3">4</button>
-                              <button type="button" class="pay-btn py-3">5</button>
-                              <button type="button" class="pay-btn py-3">6</button>
-                              <button type="button" class="pay-btn py-3">$ 10</button>
-                          </div>
-                          <div class="d-flex align-content-center justify-content-between">
-                              <button type="button" class="pay-btn py-3">7</button>
-                              <button type="button" class="pay-btn py-3">8</button>
-                              <button type="button" class="pay-btn py-3">9</button>
-                              <button type="button" class="pay-btn py-3">$ 20</button>
-                          </div>
-                          <div class="d-flex align-content-center justify-content-between">
-                              <button type="button" class="pay-btn py-3">.</button>
-                              <button type="button" class="pay-btn py-3">0</button>
-                              <button type="button" class="pay-btn py-3">&#60;</button>
-                              <button type="button" class="pay-btn py-3">$ 50</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row mt-4">
-                      <div class="col-md-8 offset-md-2">
-                          <div class="d-flex align-content-center justify-content-between gap-1 flex-md-wrap">
-                              <button type="buttonn" class="btn-orang px-5 py-2 rounded">Cash</button>
-                              <button type="buttonn" class="btn-orang px-5 py-2 rounded"
-                                data-bs-dismiss="modal"
-                                data-bs-toggle="modal"
-                                data-bs-target="#staticBackdrop"
-                              >
-                                Card
-                              </button>
-                              <button type="buttonn" class="btn-orang px-5 py-2 rounded">Online</button>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="row mt-2">
-                      <div class="col-md-8 offset-md-2">
-                          <div class="d-flex align-content-center justify-content-between">
-                              <div class="col-7">
-                                  <textarea name="Comments" id="" class="w-100 text-area" placeholder="Comments"></textarea>
-                              </div>
-                              <div class="col-4 text-center">
-                                  <div
-                                      class="d-flex flex-column align-content-center justify-content-between gap-3">
-                                      <div class="d-felx align-content-center justify-content-between gap-1">
-                                          <input type="checkbox" class="pay-input" name="paychek">
-                                          <label for="paychek" class="profile-description text-nowrap">Split
-                                              amount</label>
-                                      </div>
-                                      <input class="pay-input py-2 px-3" type="search" placeholder="0">
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="modal-footer footerbg justify-content-center">
-              <button class="footer-btn px-3" style="background: var(--red)">
-                  <span>
-                      <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M15.75 3.99854H13.0807C12.7575 3.99854 12.4718 3.79305 12.369 3.4863L12.132 2.77374C11.9273 2.16099 11.355 1.74854 10.7092 1.74854H7.28998C6.64348 1.74854 6.07125 2.16107 5.86725 2.77457L5.63026 3.48557C5.52826 3.79232 5.24174 3.99854 4.91849 3.99854H2.25C1.836 3.99854 1.5 4.33379 1.5 4.74854C1.5 5.16329 1.836 5.49854 2.25 5.49854H3.04875L3.61198 13.948C3.71623 15.5185 5.03101 16.7485 6.60526 16.7485H11.3955C12.9697 16.7485 14.2845 15.5178 14.3887 13.948L14.952 5.49854H15.75C16.164 5.49854 16.5 5.16329 16.5 4.74854C16.5 4.33379 16.164 3.99854 15.75 3.99854ZM7.29076 3.24854L10.71 3.2478L10.947 3.96027C10.9515 3.97377 10.9582 3.98504 10.9635 3.99854H7.03798C7.04248 3.98504 7.05 3.97303 7.0545 3.95953L7.29076 3.24854ZM12.8918 13.8483C12.8393 14.6336 12.1822 15.2485 11.3947 15.2485H6.60452C5.81777 15.2485 5.16 14.6336 5.1075 13.8483L4.55173 5.49854H4.91927C4.99952 5.49854 5.07823 5.48802 5.15698 5.47977C5.18923 5.48427 5.21698 5.49854 5.25073 5.49854H12.7507C12.7837 5.49854 12.8122 5.48352 12.8445 5.47977C12.9232 5.48802 13.0012 5.49854 13.0822 5.49854H13.4497L12.8918 13.8483ZM11.25 8.49854V12.2485C11.25 12.6633 10.914 12.9985 10.5 12.9985C10.086 12.9985 9.75 12.6633 9.75 12.2485V8.49854C9.75 8.08379 10.086 7.74854 10.5 7.74854C10.914 7.74854 11.25 8.08379 11.25 8.49854ZM8.25 8.49854V12.2485C8.25 12.6633 7.914 12.9985 7.5 12.9985C7.086 12.9985 6.75 12.6633 6.75 12.2485V8.49854C6.75 8.08379 7.086 7.74854 7.5 7.74854C7.914 7.74854 8.25 8.08379 8.25 8.49854Z"
-                              fill="white" />
-                      </svg>
-                  </span>
-                  Cancel
-              </button>
-              <button class="footer-btn px-3" style="background: var(--green)">
-                  <span>
-                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M7.06057 11.6893L4.06066 8.68925L3 9.74991L7.06057 13.8107L15.3105 5.56067L14.2499 4.50001L7.06057 11.6893Z"
-                              fill="white" />
-                      </svg>
-                  </span>
-                  Check out
-              </button>
-          </div>
-      </div>
-  </div>
-</div>
-
-<div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-print">
-        <div class="modal-content modal-content-print">
-            <div class="modal-header d-flex w-100 border-bottom-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <span class="print-text pt-5">SEND RECEIPT TO</span>
-            <div class="d-flex">
-                <div
-                    class="col-4 box-print p-4"
-                    onclick="printPdf()"
-                    style="cursor: pointer;"
-                    data-bs-dismiss="modal"
-                    data-bs-toggle="modal"
-                    data-bs-target="#printmodal"
-                >
-                    <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px">
-                    <span class="print-box-text pt-2">
-                        Printer
-                    </span>
-                </div>
-                <div
-                    class="col-4 box-print p-4"
-                    style="cursor: pointer;"
-                    data-bs-dismiss="modal"
-                    data-bs-toggle="modal"
-                    data-bs-target="#emailmodal"
-                >
-                    <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px">
-                    <span class="print-box-text pt-2">
-                        Email
-                    </span>
-                </div>
-                <div class="col-4 box-print p-4">
-                    <div>
-                        <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px" style="margin-right: 5px;" >
-                        <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px" style="margin-right: 13px;" >
+    <div class="modal fade" id="payment" tabindex="-1" aria-labelledby="paymentLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="pay-modal-content">
+            <div class="modal-body">
+                <div class="px-5">
+                    <div class="row px-3">
+                        <div class="col-md-3 bg-w p-3">
+                            <div class="mb-5">
+                                <p class="sub-head">Total Amount</p>
+                                <p class="mid-head subtotal">$ {{ $subtotal }}</p>
+                            </div>
+                            <div class="mb-2">
+                                <p class="profile-description">Service Charges</p>
+                                <p class="mid-head">$ 00.00</p>
+                            </div>
+                            <div class="mb-2">
+                                <p class="profile-description">Discount </p>
+                                <p class="mid-head totalDiscount">$ {{ number_format($totaldiscount, 2) }}</p>
+                            </div>
+                            <div class="mb-2">
+                                <p class="profile-description">Due Amount</p>
+                                <p class="mid-head duePrice">$ {{ number_format($total, 2) }} </p>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class=" bg-w sub-head ">
+                                <p class="sub-head text-end py-3 px-4">
+                                    $ 00.00
+                                </p>
+                            </div>
+                            <div class="d-flex align-content-center justify-content-between">
+                                <button type="button" class="pay-btn py-3">1</button>
+                                <button type="button" class="pay-btn py-3">2</button>
+                                <button type="button" class="pay-btn py-3">3</button>
+                                <button type="button" class="pay-btn py-3">$ 5</button>
+                            </div>
+                            <div class="d-flex align-content-center justify-content-between">
+                                <button type="button" class="pay-btn py-3">4</button>
+                                <button type="button" class="pay-btn py-3">5</button>
+                                <button type="button" class="pay-btn py-3">6</button>
+                                <button type="button" class="pay-btn py-3">$ 10</button>
+                            </div>
+                            <div class="d-flex align-content-center justify-content-between">
+                                <button type="button" class="pay-btn py-3">7</button>
+                                <button type="button" class="pay-btn py-3">8</button>
+                                <button type="button" class="pay-btn py-3">9</button>
+                                <button type="button" class="pay-btn py-3">$ 20</button>
+                            </div>
+                            <div class="d-flex align-content-center justify-content-between">
+                                <button type="button" class="pay-btn py-3">.</button>
+                                <button type="button" class="pay-btn py-3">0</button>
+                                <button type="button" class="pay-btn py-3">&#60;</button>
+                                <button type="button" class="pay-btn py-3">$ 50</button>
+                            </div>
+                        </div>
                     </div>
-                    <span class="print-box-text pt-2" style="margin-left: -14px;">
-                        Print & Email
+                    <div class="row mt-4">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="d-flex align-content-center justify-content-between gap-1 flex-md-wrap">
+                                <button type="buttonn" class="btn-orang px-5 py-2 rounded">Cash</button>
+                                <button type="buttonn" class="btn-orang px-5 py-2 rounded"
+                                    data-bs-dismiss="modal"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
+                                >
+                                    Card
+                                </button>
+                                <button type="buttonn" class="btn-orang px-5 py-2 rounded">Online</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-8 offset-md-2">
+                            <div class="d-flex align-content-center justify-content-between">
+                                <div class="col-7">
+                                    <textarea name="Comments" id="" class="w-100 text-area" placeholder="Comments"></textarea>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <div
+                                        class="d-flex flex-column align-content-center justify-content-between gap-3">
+                                        <div class="d-felx align-content-center justify-content-between gap-1">
+                                            <input type="checkbox" class="pay-input" name="paychek">
+                                            <label for="paychek" class="profile-description text-nowrap">Split
+                                                amount</label>
+                                        </div>
+                                        <input class="pay-input py-2 px-3" type="search" placeholder="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer footerbg justify-content-center">
+                <button class="footer-btn px-3" style="background: var(--red)">
+                    <span>
+                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.75 3.99854H13.0807C12.7575 3.99854 12.4718 3.79305 12.369 3.4863L12.132 2.77374C11.9273 2.16099 11.355 1.74854 10.7092 1.74854H7.28998C6.64348 1.74854 6.07125 2.16107 5.86725 2.77457L5.63026 3.48557C5.52826 3.79232 5.24174 3.99854 4.91849 3.99854H2.25C1.836 3.99854 1.5 4.33379 1.5 4.74854C1.5 5.16329 1.836 5.49854 2.25 5.49854H3.04875L3.61198 13.948C3.71623 15.5185 5.03101 16.7485 6.60526 16.7485H11.3955C12.9697 16.7485 14.2845 15.5178 14.3887 13.948L14.952 5.49854H15.75C16.164 5.49854 16.5 5.16329 16.5 4.74854C16.5 4.33379 16.164 3.99854 15.75 3.99854ZM7.29076 3.24854L10.71 3.2478L10.947 3.96027C10.9515 3.97377 10.9582 3.98504 10.9635 3.99854H7.03798C7.04248 3.98504 7.05 3.97303 7.0545 3.95953L7.29076 3.24854ZM12.8918 13.8483C12.8393 14.6336 12.1822 15.2485 11.3947 15.2485H6.60452C5.81777 15.2485 5.16 14.6336 5.1075 13.8483L4.55173 5.49854H4.91927C4.99952 5.49854 5.07823 5.48802 5.15698 5.47977C5.18923 5.48427 5.21698 5.49854 5.25073 5.49854H12.7507C12.7837 5.49854 12.8122 5.48352 12.8445 5.47977C12.9232 5.48802 13.0012 5.49854 13.0822 5.49854H13.4497L12.8918 13.8483ZM11.25 8.49854V12.2485C11.25 12.6633 10.914 12.9985 10.5 12.9985C10.086 12.9985 9.75 12.6633 9.75 12.2485V8.49854C9.75 8.08379 10.086 7.74854 10.5 7.74854C10.914 7.74854 11.25 8.08379 11.25 8.49854ZM8.25 8.49854V12.2485C8.25 12.6633 7.914 12.9985 7.5 12.9985C7.086 12.9985 6.75 12.6633 6.75 12.2485V8.49854C6.75 8.08379 7.086 7.74854 7.5 7.74854C7.914 7.74854 8.25 8.08379 8.25 8.49854Z"
+                                fill="white" />
+                        </svg>
                     </span>
+                    Cancel
+                </button>
+                <button class="footer-btn px-3" style="background: var(--green)">
+                    <span>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.06057 11.6893L4.06066 8.68925L3 9.74991L7.06057 13.8107L15.3105 5.56067L14.2499 4.50001L7.06057 11.6893Z"
+                                fill="white" />
+                        </svg>
+                    </span>
+                    Check out
+                </button>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-print">
+            <div class="modal-content modal-content-print">
+                <div class="modal-header d-flex w-100 border-bottom-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <span class="print-text pt-5">SEND RECEIPT TO</span>
+                <div class="d-flex">
+                    <div
+                        class="col-4 box-print p-4"
+                        onclick="printElement('invoice')"
+                        style="cursor: pointer;"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#printmodal"
+                    >
+                        <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px">
+                        <span class="print-box-text pt-2">
+                            Printer
+                        </span>
+                    </div>
+                    <div class="d-none">
+                        @include('billPDF')
+                    </div>
+                    <div
+                        class="col-4 box-print p-4"
+                        style="cursor: pointer;"
+                        data-bs-dismiss="modal"
+                        data-bs-toggle="modal"
+                        data-bs-target="#emailmodal"
+                    >
+                        <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px">
+                        <span class="print-box-text pt-2">
+                            Email
+                        </span>
+                    </div>
+                    <div class="col-4 box-print p-4">
+                        <div>
+                            <img src="../../assets/icons/envelope.svg" alt="tag" height="24px" width="24px" style="margin-right: 5px;" >
+                            <img src="../../assets/icons/printer-orange.svg" alt="tag" height="24px" width="24px" style="margin-right: 13px;" >
+                        </div>
+                        <span class="print-box-text pt-2" style="margin-left: -14px;">
+                            Print & Email
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@include('billPDF')
-<div class="modal fade" id="emailmodal" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-email">
-        <div class="modal-content modal-content-email">
-            <div class="modal-content border-0">
-                <h5 class="mid-head" id="noteModalLabel">
-                    EMAIL TO
-                </h5>
-                <div class="modal-input-email-outer">
-                    <input type="text" class="modal-input-email" id="notes" value=""> 
-                </div>
-                <div class="d-flex justify-content-center align-content-center gap-2">
-                    <button type="button" class="btn-orang px-5 py-3">APPLY DISCOUNT</button>
+    <div class="modal fade" id="emailmodal" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-email">
+            <div class="modal-content modal-content-email">
+                <div class="modal-content border-0">
+                    <h5 class="mid-head" id="noteModalLabel">
+                        EMAIL TO
+                    </h5>
+                    <div class="modal-input-email-outer">
+                        <input type="text" class="modal-input-email" id="notes" value=""> 
+                    </div>
+                    <div class="d-flex justify-content-center align-content-center gap-2">
+                        <button type="button" class="btn-orang px-5 py-3">APPLY DISCOUNT</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </section>
+<script>
+    function printElement() {
+        var printableContent = document.getElementById('invoice');
+        var popupWin = window.open('', '_blank', 'width=750,height=600,left=300');
+        popupWin.document.open();
+        popupWin.document.write('<html><head><title>Print</title></head><body>' + printableContent.innerHTML + '</body></html>');
+        popupWin.document.close();
+
+        setTimeout(function() {
+            popupWin.print();
+            popupWin.close();
+        }, 500);
+    }
+</script>

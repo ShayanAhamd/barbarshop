@@ -1,160 +1,307 @@
-<div class="modal fade" id="printmodal" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-printer">
-        <div class="modal-content modal-content-printer">
-            <div class="modal-header d-flex w-100 border-bottom-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-                <h1>Beauty Shop Invoice</h1>
-                <!-- Product details -->
-                <table>
-                <thead>
-                    <tr>
-                        <th>Product Name</th>
-                        <th>Staff Name</th>
-                        <th>Device Name</th>
-                        <th>Customer Name</th>
-                        <th>Subtotal</th>
-                        <th>Tax</th>
-                        <th>Total</th>
-                        <th>Account Balance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Product 1</td>
-                        <td>Staff A</td>
-                        <td>Device 1</td>
-                        <td>Customer X</td>
-                        <td class="right">$100.00</td>
-                        <td class="right">$10.00</td>
-                        <td class="right">$110.00</td>
-                        <td class="right">$0.00</td>
-                        </tr>
-                        <tr>
-                        <td>Product 2</td>
-                        <td>Staff B</td>
-                        <td>Device 2</td>
-                        <td>Customer Y</td>
-                        <td class="right">$50.00</td>
-                        <td class="right">$5.00</td>
-                        <td class="right">$55.00</td>
-                        <td class="right">$0.00</td>
-                    </tr>
-                </tbody>
-                </table>
-
-                <!-- Barcode -->
-                <div id="barcode">
-                <!-- Add barcode image here using a library or API -->
-                </div>
-
-                <!-- Printing options -->
-                <div>
-                <label for="printer">Printer:</label>
-                <select id="printer">
-                    <option value="">Choose printer...</option>
-                    <!-- List available printers here using a library or API -->
-                </select>
-                </div>
-                <div>
-                    <label for="pages">Pages:</label>
-                    <input type="text" id="pages" value="1">
-                </div>
-                <div>
-                    <label for="copies">Copies:</label>
-                    <input type="text" id="copies" value="1">
-                </div>
-                <div>
-                    <label for="layout">Layout:</label>
-                    <select id="layout">
-                        <option value="portrait">Portrait</option>
-                        <option value="portrait">Landscape</option>
-                    </select>
-                </div>
-                <div>
-                    <label for="color">Color:</label>
-                    <select id="color">
-                        <option value="blackwhite">Black and white</option>
-                        <option value="color">Color</option>
-                    </select>
-                </div>
-
-                <!-- Print and cancel buttons -->
-                <div>
-                    <button onclick="printPDF()">Print</button>
-                    <button onclick="cancel()">Cancel</button>
-                </div>
-        </div>
+<div class="d-none" id="invoice">
+  <span style="
+      font-size:25px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+    ">
+    Beauty Shop
+  </span>
+  <span style="
+      text-transform: lowercase;
+      display: flex;
+      justify-content: center;
+    ">
+    username
+  </span>
+  <span style="
+      text-transform: lowercase;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 20px
+    ">
+    email
+  </span>
+  <div>
+    <div style="display:flex;border-top: 2px solid black;width: 100%;padding-top: 10px">
+      <span style="
+            font-weight: bold;
+          ">
+        Reciept of Purchase(Inc Tax)
+      </span>
+      <span id="datetime" style="
+          font-weight: bold;
+          margin-left: auto;
+        ">
+      </span>
     </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        Staff
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        {{session()->get('business_name')}}
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        Device
+      </span>
+      <span id="device-name" style="
+          margin-left: auto;
+            ">
+      </span>
+    </div>
+    <div style="display:flex;padding-bottom: 10px;padding-top: 3px">
+      <span>
+        Customer
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        asdsad
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px">
+      <span style="
+            font-weight: bold;
+          ">
+        Product
+      </span>
+      <span style="
+          font-weight: bold;
+          margin-left: auto;
+          text-transform:uppercase;
+        ">
+        Price&emsp;qty&emsp;total
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        {{ ($details['name']) }}
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        ${{ $details['orignalPrice'] }}&emsp;{{ $details['quantity'] }}&emsp;${{ $details['price'] }}
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px;">
+      <span style="text-transform:capitalize" id="discount_type_{{ $id }}">
+        Discount: {{ $details['discount_name'] }}
+      </span>
+      <span style="
+          margin-left: auto;
+            " id="discount_total_{{ $id }}">
+            {{ $details['discount_value'] != '' ? "-$" . $details['discount_value'] : '' }}
+      </span>
+    </div>
+    <div style="display:flex;padding-bottom: 10px;padding-top: 3px">
+      <span>
+        Notes
+      </span>
+      <span style="
+          margin-left: auto;
+          font-size: 20px;
+            ">
+        Total Qty&emsp;{{ $details['quantity'] }}
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px;">
+      <span>
+        Sub Total
+      </span>
+      <span style="
+          margin-left: auto;
+        ">
+        $78.90
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 10px;padding-bottom: 10px;">
+      <span>
+        Total
+      </span>
+      <span style="
+          margin-left: auto;
+          font-size:40px;
+          font-weight:bold;
+          padding-bottom: 5px;
+            ">
+        $78.890
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px">
+      <span style="
+            font-weight: bold;
+            text-transform:uppercase;
+          ">
+        Account Balance
+      </span>
+      <span style="
+          font-weight: bold;
+          margin-left: auto;
+          text-transform:uppercase;
+        ">
+        Amount
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        Balance
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        $10.00
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px;padding-bottom: 10px">
+      <span>
+        Max Credit
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        $10.00
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px">
+      <span>
+        Previous Points
+      </span>
+      <span style="
+          margin-left: auto;
+        ">
+        10
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        Points Gained
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        10
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px">
+      <span>
+        Current Points
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        1
+      </span>
+    </div>
+    <div style="display:flex;padding-bottom: 10px;padding-top: 3px">
+      <span>
+        Points Value
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        $10.00
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px">
+      <span style="
+            font-weight: bold;
+            text-transform:uppercase;
+          ">
+        Paymnet By Tender
+      </span>
+      <span style="
+          font-weight: bold;
+          margin-left: auto;
+          text-transform:uppercase;
+        ">
+        Amount
+      </span>
+    </div>
+    <div style="display:flex;padding-top: 3px;padding-bottom: 10px">
+      <span>
+        Card
+      </span>
+      <span style="
+          margin-left: auto;
+            ">
+        $12.00
+      </span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;border-top: 1px solid black;width: 100%;padding-top: 10px;padding-bottom: 10px;">
+      <span style="
+            font-weight: bold;
+            text-transform:uppercase;
+          ">
+        Tax Rate
+      </span>
+      <span style="
+          font-weight: bold;
+          margin-left: auto;
+          text-transform:uppercase;
+        ">
+        Percentage
+      </span>
+      <span style="
+          font-weight: bold;
+          margin-left: auto;
+          text-transform:uppercase;
+        ">
+        Tax
+      </span>
+    </div>
+  </div>
+  <span style="
+      display: flex;
+      justify-content: center;
+    ">
+    VAT Number: GNBA24782374
+  </span>
+  <div style="text-align: center;border-top: 1px solid black;width: 100%;padding-top: 10px;padding-bottom: 10px;">
+    <span>
+      Please retain your receipt for funds within 14 days form the date of purchase
+    </span>
+    <br>
+    <span style="
+        font-weight:bold;
+      ">
+      Follow our socail media for 10% off on your next treatment
+    </span>
+    <br>
+  </div>
 </div>
 <script>
-    function printPdf() {
-      // Get the iframe element
-      let iframe = document.getElementById('pdf-iframe');
+    // to get current date & time
+    const now = new Date();
+    const datetimeSpan = document.getElementById("datetime");
+    datetimeSpan.textContent = now.toISOString();
 
-      // Wait for the PDF file to load
-      iframe.onload = function() {
-        // Print the PDF file
-        iframe.contentWindow.print();
-      };
-    }
-    function printPDF() {
-      // Use a library or API to generate the PDF
-      // Replace the following line with code to generate the PDF
-      alert("PDF generated and sent to printer");
-      
-      // Get printing options
-      var printer = document.getElementById("printer").value;
-      var pages = document.getElementById("pages").value;
-      var copies = document.getElementById("copies").value;
-      var layout = document.getElementById("layout").value;
-      var color = document.getElementById("color").value;
+    // to get the device name
+    const userAgent = navigator.userAgent.toLowerCase();
+    let deviceType;
 
-      // Use a library or API to send the PDF to the printer with the selected options
-      // Replace the following line with code to send the PDF to the printer
-      alert("PDF sent to printer with options: " + "printer=" + printer + ", pages=" + pages + ", copies=" + copies + ", layout=" + layout + ", color=" + color);
+    if (/mobile/i.test(userAgent)) {
+        deviceType = 'Mobile Phone';
+    } else if (/tablet/i.test(userAgent)) {
+        deviceType = 'Tablet';
+    } else {
+        deviceType = 'Personal Computer';
     }
-
-    function cancel() {
-      // Cancel printing
-      // Replace the following line with code to cancel printing
-      alert("Printing cancelled");
-    }
+    document.getElementById("device-name").innerHTML = deviceType;
 </script>
-<style>
-    /* Define styles for the PDF layout */
-    @page {
-      size: A4;
-      margin: 20mm;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      font-size: 12pt;
-      line-height: 1.5;
-    }
-    h1 {
-      font-size: 24pt;
-      text-align: center;
-    }
-    table {
-      border-collapse: collapse;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      width: 100%;
-    }
-    table, th, td {
-      border: 1px solid black;
-      padding: 5px;
-    }
-    .center {
-      text-align: center;
-    }
-    .right {
-      text-align: right;
-    }
-    #barcode {
-      margin-top: 20px;
-      text-align: center;
-    }
-  </style>
